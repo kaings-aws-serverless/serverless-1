@@ -4,6 +4,8 @@ service: serverless-1
 provider:
   name: aws
   runtime: nodejs12.x
+  region: us-east-2   # set region as global/default variable
+  stage: dev  # set stage dev as global/default variable
 
 
 functions:
