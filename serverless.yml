@@ -21,4 +21,13 @@ functions:
           path: math/add
           method: post
           cors: true  # enable CORS
+  
+  vpcTestFn:
+    handler: vpc-test.vpcTest
+    vpc:
+      securityGroupIds:
+        - <your-securityGroupId>  # look it up on AWS console VPC, at least 1 or more
+      subnetIds:
+        - <your-subnetId>   # lookit up on AWS console VPC, recommended to have at least 2 subnetIds
+        - <your-subnetId>
 
