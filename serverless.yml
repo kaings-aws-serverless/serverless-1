@@ -6,8 +6,19 @@ provider:
   runtime: nodejs12.x
   region: us-east-2   # set region as global/default variable
   stage: dev  # set stage dev as global/default variable
-
+  memorySize: 128   # default memorySize for lambda fn if not specified is 1024 MB
+  timeout: 2    # default timeout if not specified is 6 secs
 
 functions:
   hello:
     handler: handler.hello
+
+  addFn:
+    handler: add.add
+    timeout: 3
+    events:   # ref: https://serverless.com/framework/docs/providers/aws/guide/events/
+      - http:
+          path: math/add
+          method: post
+          cors: true  # enable CORS
+
