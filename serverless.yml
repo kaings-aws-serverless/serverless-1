@@ -22,3 +22,28 @@ functions:
           method: post
           cors: true  # enable CORS
 
+  add2Fn:
+    handler: add2.add2
+    events:
+      - http:
+          path: math/add2
+          method: post
+          integration: lambda   # to specify the lambda-integration (if not specified, the default will be lambda-proxy-integration)
+          request:
+            template:   # specify the body mapping template (using velocity template language)
+              application/json: >
+                #set($inputRoot = $input.path('$'))
+                {
+                  "num1": $inputRoot.input.operand1,
+                  "num2": $inputRoot.input.operand2
+                }
+          response:
+            headers:
+              Access-Control-Allow-Origin: "'*'"    # ATTENTION: double & single quotes are necessary. Ref: https://serverless.com/framework/docs/providers/aws/events/apigateway/#custom-response-headers
+              Content-Type: "'application/json'"    # ATTENTION: double & single quotes are necessary
+            template: >                             # yaml multi string line. Ref: https://yaml-multiline.info/
+                #set($inputRoot = $input.path('$'))
+                {
+                  "mappedRes": $inputRoot.addRes
+                }
+
