@@ -1,5 +1,7 @@
 service: serverless-1
 
+plugins:    # you can add any plugins here. In this case is serverless-offline. to run `serverless offline`
+  - serverless-offline
 
 provider:
   name: aws
