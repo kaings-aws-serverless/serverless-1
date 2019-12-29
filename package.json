@@ -1,0 +1,19 @@
+{
+  "name": "serverless-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "add.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaings-aws-serverless/serverless-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaings-aws-serverless/serverless-1/issues"
+  },
+  "homepage": "https://github.com/kaings-aws-serverless/serverless-1#readme"
+}
